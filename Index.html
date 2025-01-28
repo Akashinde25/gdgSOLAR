@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Solar System Facts</h1>
+        <p id="fact"></p>
+        <button id="nextFactButton">Show Next Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "The Sun contains about 99.86% of the total mass of the solar system.",
+            "There are eight recognized planets in our solar system.",
+            "The solar system is divided into terrestrial planets and gas giants.",
+            "Jupiter is the largest planet in the solar system.",
+            "Saturn is famous for its stunning rings.",
+            "Mars has two small moons, Phobos and Deimos.",
+            "Beyond Neptune lies the Kuiper Belt.",
+            "The Oort Cloud is a theoretical cloud of icy objects.",
+            "The Sun emits a stream of charged particles known as solar wind.",
+            "Astronomers have discovered thousands of exoplanets."
+        ];
+
+        let currentFactIndex = 0;
+
+        const factElement = document.getElementById('fact');
+        const nextFactButton = document.getElementById('nextFactButton');
+
+        function showNextFact() {
+            factElement.textContent = facts[currentFactIndex];
+            currentFactIndex = (currentFactIndex + 1) % facts.length; // Loop back to the start
+        }
+
+        nextFactButton.addEventListener('click', showNextFact);
+
+        // Show the first fact on page load
+        showNextFact();
+    </script>
+</body>
+</html>
